@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using RentalCar.Context;
+
 namespace RentalCar
 {
     public class Program
@@ -13,6 +16,8 @@ namespace RentalCar
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("rental_car"));
 
             var app = builder.Build();
 
