@@ -10,6 +10,6 @@ namespace RentalCar.Context
         {
         }
 
-        public DbSet<Carro> Carros { get; set; }
+        public DbSet<Car> Cars { get; set; }
     }
 }
