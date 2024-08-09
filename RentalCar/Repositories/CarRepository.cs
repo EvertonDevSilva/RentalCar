@@ -29,6 +29,7 @@ namespace RentalCar.Repositories
         public Task Update(Car car)
         {
             context.Cars.Update(car);
+            context.SaveChanges();
             return Task.CompletedTask;
         }
 
