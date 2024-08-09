@@ -6,7 +6,7 @@ using RentalCar.Models;
 namespace RentalCar.Controllers.v1
 {
     [ApiController]
-    [Route("Api/v1/[controller]")]
+    [Route("Api/V1/[controller]")]
     public class CarController(ICarService carService) : ControllerBase
     {
         private readonly ICarService _carService = carService;
