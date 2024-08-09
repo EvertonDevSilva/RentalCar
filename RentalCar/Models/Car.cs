@@ -1,21 +1,21 @@
 ﻿namespace RentalCar.Models
 {
-    public class Car(string brand, string place, decimal kmInitial, decimal kmFinal, bool isRended)
+    public class Car(string brand, string placeId, decimal kmInitial)
     {
         public int Id { get; set; }
-        public string Brand { get; set; } = brand;
-        public string Place { get; set; } = place;
-        public decimal KmInitial { get; set; } = kmInitial;
-        public decimal KmFinal { get; set; } = kmFinal;
-        public bool IsRended {  get; set; } = isRended;
+        public string Brand { get; private set; } = brand;
+        public string PlaceId { get; private set; } = placeId;
+        public decimal KmInitial { get; private set; } = kmInitial;
+        public decimal KmFinal { get; private set; } = 0;
+        public bool IsRended {  get; private set; } = false;
 
-        public void UpdateCar(Car car)
+        public void UpdateCar(string brand, string placeId, decimal kmInitial, decimal kmFinal, bool isRended)
         {
-            this.Brand = car.Brand;
-            this.Place = car.Place;
-            this.KmInitial = car.KmInitial;
-            this.KmFinal = car.KmFinal;
-            this.IsRended = car.IsRended;
+            this.Brand = brand;
+            this.PlaceId = placeId;
+            this.KmInitial = kmInitial;
+            this.KmFinal = kmFinal;
+            this.IsRended = isRended;
         }
 
         public void IsRendedAlter(bool isRended)

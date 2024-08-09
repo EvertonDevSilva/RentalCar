@@ -1,6 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using RentalCar.Context;
+using RentalCar.Interfaces;
+using RentalCar.Repositories;
+using RentalCar.Services;
 
 namespace RentalCar
 {
@@ -16,6 +19,9 @@ namespace RentalCar
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<ICarRepository, CarRepository>();
+            builder.Services.AddScoped<ICarService, CarService>();
 
             builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("rental_car"));
 
